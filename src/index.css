@@ -1,0 +1,211 @@
+/* ===================================================
+   DOGLOG - Estilos Globais
+   
+   Esse arquivo complementa o Bootstrap com as cores
+   e fontes específicas do DogLog. O Bootstrap cuida
+   da estrutura e do grid. Esse arquivo cuida da
+   identidade visual.
+   =================================================== */
+
+/* Importa as fontes do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap');
+
+/* Variáveis de cor: mudar aqui reflete em todo o sistema */
+:root {
+  --cor-primaria: #5b4fcf;
+  --cor-primaria-escura: #4a3fb8;
+  --cor-secundaria: #9b8ff0;
+  --cor-fundo: #f5f4ff;
+  --cor-sidebar: #2d2460;
+  --cor-sidebar-texto: #c8c2f5;
+  --cor-card: #ffffff;
+  --cor-texto: #212529;
+  --cor-muted: #6c757d;
+}
+
+/* Aplica fonte e cor de fundo em toda a página */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  margin: 0;
+}
+
+/* Títulos usam Nunito, mais arredondada e amigável */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+}
+
+/* ===== NAVBAR ===== */
+.navbar-doglog {
+  background-color: var(--cor-primaria) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-doglog .navbar-brand {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: #fff !important;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  background-color: var(--cor-sidebar);
+  min-height: calc(100vh - 56px);  /* ocupa o restante da tela abaixo da navbar */
+  padding: 1.5rem 0;
+  position: sticky;
+  top: 56px;                        /* gruda no topo ao rolar a página */
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.65rem 1.25rem;
+  color: var(--cor-sidebar-texto);
+  font-weight: 600;
+  cursor: pointer;
+  border-left: 3px solid transparent;
+  transition: all 0.2s;
+  text-decoration: none;
+  font-size: 0.95rem;
+  background: none;
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  width: 100%;
+  text-align: left;
+}
+
+.sidebar-item:hover,
+.sidebar-item.active {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-left-color: var(--cor-secundaria);
+  color: #fff;
+}
+
+.sidebar-item i {
+  font-size: 1.1rem;
+  width: 22px;
+  text-align: center;
+}
+
+/* ===== CARDS DO DASHBOARD ===== */
+.stat-card {
+  background: var(--cor-card);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 2px 12px rgba(91, 79, 207, 0.08);
+  border-left: 5px solid var(--cor-primaria);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(91, 79, 207, 0.15);
+}
+
+.stat-card .stat-valor {
+  font-family: 'Nunito', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--cor-primaria);
+  line-height: 1.1;
+}
+
+.stat-card .stat-label {
+  font-size: 0.85rem;
+  color: var(--cor-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 0.2rem;
+}
+
+.stat-card .stat-icone {
+  font-size: 2rem;
+  opacity: 0.5;
+}
+
+/* ===== TÍTULO DE SEÇÃO ===== */
+.titulo-secao {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--cor-primaria);
+  border-bottom: 3px solid var(--cor-secundaria);
+  padding-bottom: 0.4rem;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+}
+
+/* ===== TABELA ===== */
+.tabela-doglog thead {
+  background-color: var(--cor-primaria);
+  color: #fff;
+}
+
+.tabela-doglog tbody tr:hover {
+  background-color: rgba(91, 79, 207, 0.05);
+}
+
+/* ===== BOTÃO PRINCIPAL ===== */
+.btn-doglog {
+  background-color: var(--cor-primaria);
+  border-color: var(--cor-primaria);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.btn-doglog:hover {
+  background-color: var(--cor-primaria-escura);
+  border-color: var(--cor-primaria-escura);
+  color: #fff;
+}
+
+/* ===== TELA DE LOGIN ===== */
+.login-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #2d2460 0%, #5b4fcf 60%, #9b8ff0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 420px;
+}
+
+.login-card .brand-titulo {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 2rem;
+  color: var(--cor-primaria);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background-color: var(--cor-sidebar);
+  color: var(--cor-sidebar-texto);
+  font-size: 0.85rem;
+  padding: 1rem 2rem;
+  margin-top: 2rem;
+}
+
+/* ===== RESPONSIVO ===== */
+/* No celular, a sidebar fica em cima do conteúdo, não ao lado */
+@media (max-width: 768px) {
+  .sidebar {
+    min-height: auto;
+    position: static;
+  }
+}
