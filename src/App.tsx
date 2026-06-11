@@ -7,32 +7,7 @@ import type { IAtividade, ILoginCredenciais, IDashboardStats } from './types'
 import { login, getAtividades, createAtividade, deleteAtividade } from './services/api'
 import './index.css'
 
-const ATIVIDADES_MOCK: IAtividade[] = [
-  {
-    id: 1,
-    tipo: 'RACAO',
-    horario: new Date().toISOString(),
-    observacao: 'Comeu tudo rapidinho!',
-    cachorroId: 1,
-    cachorroNome: 'Amora',
-  },
-  {
-    id: 2,
-    tipo: 'PASSEIO',
-    horario: new Date(Date.now() - 3600000).toISOString(),
-    observacao: 'Passeio no parque',
-    cachorroId: 2,
-    cachorroNome: 'Lilica',
-  },
-  {
-    id: 3,
-    tipo: 'PETISCO',
-    horario: new Date(Date.now() - 7200000).toISOString(),
-    observacao: '',
-    cachorroId: 3,
-    cachorroNome: 'Snoopy',
-  },
-]
+const ATIVIDADES_MOCK: IAtividade[] = []
 
 const App: React.FC = () => {
   const [token, setToken] = useState<string | null>(
@@ -75,7 +50,7 @@ const App: React.FC = () => {
   const handleLogout = () => {
     localStorage.removeItem('token')
     setToken(null)
-    setAtividades(ATIVIDADES_MOCK)
+    setAtividades([])
   }
 
   const handleNovaAtividade = async (novaAtividade: Omit<IAtividade, 'id'>) => {
