@@ -50,14 +50,15 @@ const AtividadesSection: React.FC<IAtividadesSectionProps> = ({
 
   // Formata horário ISO para exibição legível
   const formatarHorario = (horario: string): string => {
-    return new Date(horario).toLocaleString('pt-BR', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit',
-    })
-  }
+  return new Date(horario).toLocaleString('pt-BR', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    timeZone: 'America/Sao_Paulo',
+  })
+}
 
   // Chamada quando o usuário salva uma nova atividade no modal
   const handleSalvar = (atividade: Omit<IAtividade, 'id'>) => {

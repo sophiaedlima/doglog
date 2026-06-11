@@ -13,8 +13,11 @@ import { CACHORROS_FIXOS, LABELS_ATIVIDADE } from '../../types'
 const ModalNovaAtividade: React.FC<IModalAtividadeProps> = ({ onSalvar, onFechar }) => {
 
   // Horário atual formatado para o input datetime-local
-  const horarioInicial = new Date().toISOString().slice(0, 16)
-
+  const agora = new Date()
+  const offset = agora.getTimezoneOffset() * 60000
+  const horarioLocal = new Date(agora.getTime() - offset)
+  const horarioInicial = horarioLocal.toISOString().slice(0, 16)
+  
   const [formData, setFormData] = useState<Omit<IAtividade, 'id'>>({
     tipo: 'RACAO',
     horario: horarioInicial,
