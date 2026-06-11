@@ -5,7 +5,7 @@ Sistema de registro de atividades de pets com Spring Boot + JWT + PostgreSQL
 **Aluno:** Sophia Eduarda Lima
 **Disciplina:** Desenvolvimento de Software Web
 **Professor:** Alexandre Cláudio de Almeida
-**PUC Goiás — Junho de 2026**
+**PUC Goiás Junho de 2026**
 
 ---
 
