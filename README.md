@@ -1,6 +1,6 @@
 # DogLog Backend
 
-Sistema de registro de atividades de pets — Spring Boot + JWT + PostgreSQL
+Sistema de registro de atividades de pets com Spring Boot + JWT + PostgreSQL
 
 **Aluno:** Sophia Eduarda Lima
 **Disciplina:** Desenvolvimento de Software Web
@@ -117,6 +117,4 @@ PostgreSQL
 - **AutorizacaoService:** implementa `UserDetailsService` do Spring Security, buscando o usuário no banco via `findByLogin`. Segue o padrão ensinado em aula.
 - **Cachorros fixos:** Amora, Lilica e Snoopy são definidos no frontend como constantes. Não possuem tabela própria no banco, pois o sistema é pessoal e o cadastro de cachorros não é uma funcionalidade necessária.
 - **CORS:** configurado para aceitar requisições apenas de `localhost:5173` (Vite dev server do frontend).
-  },
-])
 ```
