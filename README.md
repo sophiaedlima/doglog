@@ -64,24 +64,38 @@ curl -X POST http://localhost:8080/api/auth/registrar \
 ---
 
 ## Diagrama do banco de dados
-┌─────────────────────────┐         ┌──────────────────────────────────┐
-│        usuarios         │         │           atividades             │
-├─────────────────────────┤         ├──────────────────────────────────┤
-│ id       varchar(50) PK │         │ id           bigserial       PK  │
-│ login    varchar(255)   │         │ cachorro_id  integer  NOT NULL   │
-│          UNIQUE         │         │ cachorro_nome varchar(255)       │
-│ senha    varchar(255)   │         │              NOT NULL            │
-│          BCrypt         │         │ horario      timestamp NOT NULL  │
-│ funcao   varchar(255)   │         │ observacao   varchar(255)        │
-└─────────────────────────┘         │ tipo         varchar(255) ENUM  │
-└──────────────────────────────────┘
-ENUM tipo: RACAO | PETISCO | PASSEIO | DORMIR
-Cachorros fixos (definidos no frontend, sem tabela no banco):
-id 1 → Amora
-id 2 → Lilica
-id 3 → Snoopy
 
----
+### Tabela: usuarios
+
+| Coluna | Tipo | Restrição |
+|--------|------|-----------|
+| id | varchar(50) | PK |
+| login | varchar(255) | UNIQUE, NOT NULL |
+| senha | varchar(255) | NOT NULL (BCrypt) |
+| funcao | varchar(255) | NOT NULL |
+
+### Tabela: atividades
+
+| Coluna | Tipo | Restrição |
+|--------|------|-----------|
+| id | bigserial | PK |
+| cachorro_id | integer | NOT NULL |
+| cachorro_nome | varchar(255) | NOT NULL |
+| horario | timestamp | NOT NULL |
+| observacao | varchar(255) | nullable |
+| tipo | varchar(255) | NOT NULL (ENUM) |
+
+**Valores permitidos para tipo:** `RACAO` `PETISCO` `PASSEIO` `DORMIR`
+
+### Cachorros fixos (sem tabela no banco)
+
+| id | Nome |
+|----|------|
+| 1 | Amora |
+| 2 | Lilica |
+| 3 | Snoopy |
+
+> Os cachorros são definidos como constantes no frontend. Por ser um sistema pessoal, o cadastro de cachorros não é necessário.
 
 ## Arquitetura em camadas
 Requisição HTTP
